@@ -1,45 +1,102 @@
-# Project Name
+# Eau Claire's Salon
 
-#### By (Joseph Jack)
+#### By _**Winnie Wang**_  
 
+#### _An MVC application to help Eau Claire manage her employees (stylists) and their clients._  
+
+---
+
+## Table of Contents
+
+**[Technologies Used](#technologies-used)  
+[Description](#description)  
+[Setup/Installation Requirements](#setup-and-installation-requirements)  
+[Known Bugs](#known-bugs)  
+[License](#license)**
+
+---
+
+## Technologies Used
+
+* _C#_
+* _.NET_
+* _HTML_
+* _CSS_
+* _SQL Workbench_
+* _Entity Framework_
+* _MVC_
+
+---
 ## Description
 
+_This is an MVC application that was built using C#. The purpose of this application is to help Eau Claire manage her employees (stylists) and their clients. When the application runs, the user can add a list of stylists working at the salon, and for each stylist, add clients who see that stylist. The stylists have specific specialties, so each client can only see (belong to) a single stylist._
 
+---
+## Setup and Installation Requirements
 
-## Logistics
+<details>
+<summary><strong>Initial Setup</strong></summary>
+<ol>
+<li>Copy the git repository url: https://github.com/weijwang18/Eau-Claire-s-Salon
+<li>Open a shell program and navigate to your desktop.
+<li>Clone the repository for this project using the "git clone" command and including the copied URL.
+<li>While still in the shell program, navigate to the root directory of the newly created file named "Eau-Claire-s-Salon".
+<li>From the root directory, navigate to the "Eau-Claire-s-Salon" directory.
+<li>Move onto "SQL Workbench" instructions below to re-create database necessary to run this project.
+<br>
+</details>
 
-|                    | Minimum Product Features |
-| ------------------ | ------------------------ |
-| :heavy_check_mark: |                          |
-| :heavy_check_mark: |                          |
-| :heavy_check_mark: |                          |
+<details>
+<summary><strong>SQL Workbench Configuration</strong></summary>
+<ol>
+<li>Create an appsetting.json file in the "Eau-Claire-s-Salon" directory of the project*  
+   <pre>Eau-Claire-s-Salon
+   └── HairSalon
+    └── appsetting.json</pre>
+<li> Insert the following code** : <br>
 
-## Setup/Installation Requirements
+<pre>{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Port=3306;database=winnie_wang;uid=root;pwd=[YOUR-PASSWORD-HERE];"
+  }
+}</pre>
+<small>*note: you must include your password in the code block section labeled "YOUR-PASSWORD-HERE".</small><br>
+<small>**note: if you plan to push this cloned project to a public-facing repository, remember to add the appsettings.json file to your .gitignore before doing so.</small>
 
-1. Clone this projects repository into your local directory following [these](https://www.linode.com/docs/development/version-control/how-to-install-git-and-clone-a-github-repository/) instructions.
+<li>Once "appsettings.json" file has been created, navigate back to SQL Workbench.
+<li>Import the database named "best_restaurants.sql" from the root directory of the project.<br><br>
+How to Import a Database:
+<ol> 
+  <li>Open SQL Workbench.
+  <li>Navigate to "Administration" tab in SQL Workbench.
+  <li>Click "Data Import/Restore".
+  <li>Select the radio button "Import from Self-Contained File" and include file path to the sql file of this project you cloned to your machine.
+  <li>In "Default Schema to be Imported to" click "New".
+  <li>Name the schema "best_restaurants" then click "OK".
+  <li>Once named, switch to "Import Progress" tab and click "Start Import".
+  
+</details>
 
-2. Navigate to project directory from your terminal by entering the following:
+<details>
+<summary><strong>To Run</strong></summary>
+Navigate to:  
+   <pre>Eau-Claire-s-Salon
+   └── <strong>HairSalon</strong></pre>
 
-```
-cd CSharpTemplate.Solution
-```
+Run ```$ dotnet restore``` in the console.<br>
+Run ```$ dotnet run``` in the console
+</details>
+<br>
 
-* Install `Microsoft .NET SDK 5.0`
+This program was built using *`Microsoft .NET SDK 5.0.401`*, and may not be compatible with other versions. Your milage may vary.
 
-* Navigate to ProjectName directory and run `$ dotnet run` in your terminal.
-
-* For testing navigate to ProjectName.Tests and run `$ dotnet test` in your terminal.
-
+---
 ## Known Bugs
 
-* Any known issues
-
+* _No known issues_
 
 ## License
 
-* MIT
+_[MIT License](license)_
 
-## Copyright
-
-&copy; Joseph Jack 2022
-
+Copyright (c) July 29th, 2022 Winnie Wang
