@@ -64,7 +64,7 @@ _This is an MVC application that was built using C#. The purpose of this applica
 <small>**note: if you plan to push this cloned project to a public-facing repository, remember to add the appsettings.json file to your .gitignore before doing so.</small>
 
 <li>Once "appsettings.json" file has been created, navigate back to SQL Workbench.
-<li>Import the database named "best_restaurants.sql" from the root directory of the project.<br><br>
+<li>Import the database named "winnie_wang.sql" from the root directory of the project.<br><br>
 How to Import a Database:
 <ol> 
   <li>Open SQL Workbench.
@@ -72,7 +72,7 @@ How to Import a Database:
   <li>Click "Data Import/Restore".
   <li>Select the radio button "Import from Self-Contained File" and include file path to the sql file of this project you cloned to your machine.
   <li>In "Default Schema to be Imported to" click "New".
-  <li>Name the schema "best_restaurants" then click "OK".
+  <li>Name the schema "winnie_wang" then click "OK".
   <li>Once named, switch to "Import Progress" tab and click "Start Import".
   
 </details>
