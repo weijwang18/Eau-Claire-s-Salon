@@ -3,33 +3,34 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using HairSalon.Models;
 //Use namespace that reflects name of project
-namespace Template 
+namespace HairSalon
 {
   public class Startup
   {
-    //This constructor will create an iteration of the Startup class that contains specific settings and variables to run our project 
     public Startup(IWebHostEnvironment env)
     {
       var builder = new ConfigurationBuilder()
           .SetBasePath(env.ContentRootPath)
-          .AddEnvironmentVariables();
+          .AddJsonFile("appsettings.json");
       Configuration = builder.Build();
     }
-    //This is part of adding custom configurations to our project
-    public IConfigurationRoot Configuration { get; }
+
+    public IConfigurationRoot Configuration { get; set; }
 
     public void ConfigureServices(IServiceCollection services)
     {
-      //Adds MVC service to project
       services.AddMvc();
+
+      services.AddEntityFrameworkMySql()
+        .AddDbContext<ToDoListContext>(options => options
+        .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
     }
-    //responsible for telling our app how to handle requests to the server
+
     public void Configure(IApplicationBuilder app)
     {
-
-      app.UseDeveloperExceptionPage(); 
-      
+      app.UseDeveloperExceptionPage();
       app.UseRouting();
 
       app.UseEndpoints(routes =>
@@ -37,6 +38,8 @@ namespace Template
         routes.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
       });
 
+      app.UseStaticFiles();
+      
       app.Run(async (context) =>
       {
         await context.Response.WriteAsync("Hello World!");
