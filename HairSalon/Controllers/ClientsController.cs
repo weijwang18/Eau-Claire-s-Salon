@@ -11,7 +11,7 @@ namespace HairSalon.Controllers
   {
     private readonly HairSalonContext _db;
 
-    public ItemsController(HairSalonContext db)
+    public ClientsController(HairSalonContext db)
     {
       _db = db;
     }
